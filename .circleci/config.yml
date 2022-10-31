@@ -11,5 +11,5 @@ jobs:
           #   username: mydockerhub-user
           #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-      - run: eho "A first hello"
+      - run: echo "A first hello"
       - run: npm -v
