@@ -6,7 +6,7 @@ jobs:
     docker:
       # Primary container image where all steps run
       - image:
-          circleci/node:10
+          cImg/node:18.12.0
           # auth:
           #   username: mydockerhub-user
           #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
