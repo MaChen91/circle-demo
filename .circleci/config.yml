@@ -21,6 +21,21 @@ jobs:
       - run:
           name: Install
           command: yarn install
+      - restore_cache:
+          keys:
+            - node_modules_cache
+      - save_cache:
+          paths:
+            - node_modules
+          key: node_modules_cache
       - run:
           name: Build
           command: yarn build
+      - run:
+          name: Prepare shell commands
+          # shell chmod +x 赋予执行全新啊
+          # 执行 shell 脚本
+          command: chmod +x scripts/deploy.sh
+      - run:
+          name: Run Deploy to Github pages
+          command: ./scripts/deploy.sh
