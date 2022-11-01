@@ -11,5 +11,14 @@ jobs:
           #   username: mydockerhub-user
           #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "d2:d9:79:c2:01:fb:4f:1c:78:5c:cc:62:f1:71:28:4b"
       - run: echo "A first hello"
       - run: npm -v
+      - run:
+        name: Install
+        command: yarn install
+      - run:
+        name: Build
+        command: yarn build
