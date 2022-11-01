@@ -6,7 +6,7 @@ jobs:
     docker:
       # Primary container image where all steps run
       - image:
-          cImg/node:18.12.0
+          cimg/node:18.12.0
           # auth:
           #   username: mydockerhub-user
           #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
@@ -14,6 +14,8 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "d2:d9:79:c2:01:fb:4f:1c:78:5c:cc:62:f1:71:28:4b"
+      - checkout
+        # 拉取文档 !!! 一定要写啊 ~
       - run: echo "A first hello"
       - run: npm -v
       - run:
